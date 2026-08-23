@@ -1,0 +1,72 @@
+{
+  "benchmark_version": "0.1.0",
+  "case_id": "synthetic_product_analysis_001",
+  "language": ["en"],
+  "participant_alias": "participant_0",
+  "source": {
+    "context": "A fictional report compares automation platforms by market share and feature count.",
+    "turns": [
+      {
+        "role": "user",
+        "content": "Explain what differentiates these platforms."
+      },
+      {
+        "role": "assistant",
+        "content": "Platform A has the largest market share, while Platform B has more integrations."
+      },
+      {
+        "role": "user",
+        "content": "Do not stop at market share or feature lists. I want to understand who actually uses each product, in what workflow, and what problem it solves for them."
+      }
+    ]
+  },
+  "target": {
+    "context": "TaskBridge is a fictional marketplace where organizations post repetitive digital tasks and independent automation builders submit reusable workflows.",
+    "question": "Why would anyone use TaskBridge, and why is it designed as a marketplace?",
+    "supplied_material": [
+      "Organizations can publish bounded, repeatable tasks.",
+      "Automation builders can submit workflows and receive payment when a workflow is selected.",
+      "The platform does not build custom software for customers."
+    ]
+  },
+  "preference_atoms": [
+    {
+      "atom_id": "usage_workflow",
+      "source_anchor": "who actually uses each product, in what workflow, and what problem it solves",
+      "criterion": "The answer should explain at least one concrete user workflow and connect it to the product's value or design.",
+      "not_applicable": "The target is not asking about a product, service, market, or usage pattern.",
+      "score_0": "No user workflow is described; the answer relies on features or abstract market claims.",
+      "score_1": "A usage scenario is named but not unfolded into who does what and why.",
+      "score_2": "A concrete workflow shows who does what, under which constraint, and how that explains the marketplace design."
+    },
+    {
+      "atom_id": "user_roles",
+      "source_anchor": "who actually uses each product",
+      "criterion": "The answer should distinguish the relevant user roles and explain their goals or constraints.",
+      "not_applicable": "The target does not involve different users, roles, or stakeholders.",
+      "score_0": "No relevant user role is identified.",
+      "score_1": "Roles are named only as broad labels, without goals or constraints.",
+      "score_2": "The answer distinguishes organizations and automation builders and uses their goals or constraints to explain the design."
+    }
+  ],
+  "task_gate": {
+    "failure_categories": [
+      "non_answer",
+      "major_factual_error",
+      "fabricated_evidence",
+      "hard_constraint_violation",
+      "false_execution_claim"
+    ],
+    "target_specific_check": "The answer must explain why the fictional service uses a two-sided marketplace design using only the supplied material."
+  },
+  "metadata": {
+    "source_expression_type": "correction",
+    "transfer_distance": "medium",
+    "temporal_order": "forward"
+  },
+  "release": {
+    "content_origin": "synthetic",
+    "privacy_review": "not_required_synthetic",
+    "third_party_review": "not_required_synthetic"
+  }
+}

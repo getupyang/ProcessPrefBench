@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use ProcessPrefBench, please cite the paper and the released artifact."
+title: "ProcessPrefBench"
+type: dataset
+authors:
+  - family-names: "Yang"
+    given-names: "Yiwen"
+  - family-names: "Liu"
+    given-names: "Guanming"
+repository-code: "https://github.com/getupyang/ProcessPrefBench"
+url: "https://github.com/getupyang/ProcessPrefBench"
+version: 0.1.0
+date-released: 2026-08-23
+license: Apache-2.0

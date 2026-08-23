@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/getupyang/ProcessPrefBench/schemas/public-case.schema.json",
+  "title": "ProcessPrefBench public case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "benchmark_version",
+    "case_id",
+    "language",
+    "participant_alias",
+    "source",
+    "target",
+    "preference_atoms",
+    "task_gate",
+    "metadata",
+    "release"
+  ],
+  "properties": {
+    "benchmark_version": {"type": "string"},
+    "case_id": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$"},
+    "language": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "participant_alias": {"type": "string", "pattern": "^participant_[0-9]+$"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["context", "turns"],
+      "properties": {
+        "context": {"type": "string"},
+        "turns": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "content"],
+            "properties": {
+              "role": {"enum": ["user", "assistant"]},
+              "content": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["context", "question", "supplied_material"],
+      "properties": {
+        "context": {"type": "string"},
+        "question": {"type": "string"},
+        "supplied_material": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "preference_atoms": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["atom_id", "source_anchor", "criterion", "not_applicable", "score_0", "score_1", "score_2"],
+        "properties": {
+          "atom_id": {"type": "string"},
+          "source_anchor": {"type": "string"},
+          "criterion": {"type": "string"},
+          "not_applicable": {"type": "string"},
+          "score_0": {"type": "string"},
+          "score_1": {"type": "string"},
+          "score_2": {"type": "string"}
+        }
+      }
+    },
+    "task_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["failure_categories", "target_specific_check"],
+      "properties": {
+        "failure_categories": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "target_specific_check": {"type": "string"}
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_expression_type", "transfer_distance", "temporal_order"],
+      "properties": {
+        "source_expression_type": {"enum": ["correction", "prescription", "self_description"]},
+        "transfer_distance": {"enum": ["near", "medium", "far"]},
+        "temporal_order": {"enum": ["forward", "inverted"]}
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_origin", "privacy_review", "third_party_review"],
+      "properties": {
+        "content_origin": {"enum": ["synthetic", "naturalistic_deidentified"]},
+        "privacy_review": {"enum": ["not_required_synthetic", "passed"]},
+        "third_party_review": {"enum": ["not_required_synthetic", "passed"]}
+      }
+    }
+  }
+}
