@@ -10,3 +10,4 @@ outputs/
 results/local/
 data/private/
 data/raw/
+.vercel/

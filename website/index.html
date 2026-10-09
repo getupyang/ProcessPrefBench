@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="Can an AI learn how you want it to work? ProcessPrefBench studies cross-task transfer of individual process preferences from natural human–AI dialogue.">
+  <meta property="og:title" content="ProcessPrefBench — Learning how you want AI to work">
+  <meta property="og:description" content="The paper, code, product behind the research, and ways to get in touch.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://processprefbench.vercel.app/">
+  <link rel="canonical" href="https://processprefbench.vercel.app/">
+  <title>ProcessPrefBench — Paper, Code, Product & Contact</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="#" aria-label="ProcessPrefBench home"><span class="brand-mark" aria-hidden="true">p<span>p</span></span>ProcessPrefBench</a>
+    <a class="header-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="small-line"></span> Learning from human–AI dialogue</p>
+        <h1 id="hero-title">Can an AI learn <em>how you want it to work?</em></h1>
+        <p class="intro">You correct an answer. Weeks later, a different task comes up. Will the AI apply what you taught it—without another reminder?</p>
+        <p class="authors">Yiwen Yang <span>Independent Researcher</span><br>Guanming Liu <span>Fudan University</span></p>
+      </div>
+      <nav class="resource-links" aria-label="Research resources">
+        <a class="resource primary" href="paper.pdf"><span class="resource-number">01</span><span><strong>Read the paper</strong><small>Full paper · PDF</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="resource" href="https://github.com/getupyang/ProcessPrefBench"><span class="resource-number">02</span><span><strong>Explore the code</strong><small>Public research repository</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="resource" href="#product"><span class="resource-number">03</span><span><strong>Meet Margin</strong><small>The product behind the question</small></span><span class="arrow" aria-hidden="true">↓</span></a>
+        <a class="resource" href="#contact"><span class="resource-number">04</span><span><strong>Let’s talk</strong><small>Questions, ideas & collaboration</small></span><span class="arrow" aria-hidden="true">↓</span></a>
+      </nav>
+    </section>
+
+    <section class="research wrap section" id="research" aria-labelledby="research-title">
+      <div class="section-heading"><p class="eyebrow">The research question</p><h2 id="research-title">Remembering a fact is one thing.<br>Learning a working standard is another.</h2></div>
+      <div class="research-grid">
+        <div class="research-copy"><p>People teach AI through corrections, requests, and self-descriptions. These interactions reveal <strong>individual process preferences</strong>: standards for evidence, depth, analytical focus, procedure, and delivery.</p><p>ProcessPrefBench asks whether a preference expressed in one dialogue can shape a later answer when the new task does not repeat it.</p></div>
+        <div class="example" aria-label="Illustrative example of a process preference transferring to another task">
+          <p class="example-label">An illustrative example</p>
+          <div class="example-step"><span class="step-dot" aria-hidden="true"></span><div><small>In an earlier dialogue</small><p>“Focus on who uses the product and how, not just market share.”</p></div></div>
+          <div class="example-step"><span class="step-dot hollow" aria-hidden="true"></span><div><small>Weeks later · a different product</small><p>Does the answer apply that same analytical lens?</p></div></div>
+          <p class="example-note">Adapted from the paper’s motivating scenario.</p>
+        </div>
+      </div>
+      <div class="study-facts" aria-label="Study scope"><div><strong>3 months</strong><span>of natural dialogue</span></div><div><strong>66 cases</strong><span>from two knowledge workers</span></div><div><strong>1,980</strong><span>generated answers</span></div></div>
+    </section>
+
+    <section class="findings" id="results" aria-labelledby="findings-title">
+      <div class="wrap findings-inner"><p class="eyebrow">A tension in learning from dialogue</p><h2 id="findings-title">Higher preference scores.<br><em>More fabricated evidence.</em></h2>
+        <div class="result-pair"><div><span class="result-label">Preference realization</span><p class="result-value">+0.244</p><p>points on a 0–2 scale</p></div><div><span class="result-label">Fabricated-evidence failures</span><p class="result-value">5.8% <span aria-hidden="true">→</span> 10.4%</p><p>of generated answers</p></div></div>
+        <p class="result-caption">Imperative distilled-preference prompting compared with target-only prompting, under the benchmark judges. Full history shows the same broad tension: +0.204 points and 10.1% fabricated-evidence failures.</p>
+        <a class="text-link light" href="paper.pdf">Read the findings and their scope in the paper <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="wrap section" id="paper" aria-labelledby="paper-title">
+      <div class="section-heading"><p class="eyebrow">Paper & code</p><h2 id="paper-title">A benchmark for cross-task transfer.</h2></div>
+      <p class="paper-title">ProcessPrefBench: Evaluating Cross-Task Transfer of Individual Process Preferences from Naturalistic Human–AI Interaction</p>
+      <p class="measure-note">Each case pairs a known-relevant source dialogue with a later target task. Preference realization and severe task failures are judged separately. The benchmark tests application of a supplied preference source; it does not test retrieval from a long history.</p>
+      <div class="paper-actions"><a class="button" href="paper.pdf">Open paper <span aria-hidden="true">↗</span></a><a class="button secondary" href="https://github.com/getupyang/ProcessPrefBench">View repository <span aria-hidden="true">↗</span></a></div>
+      <div class="release-note"><span class="status-dot" aria-hidden="true"></span><div><strong>Public artifact · pre-release</strong><p>Benchmark documentation, a case schema, and a synthetic example are available. Evaluation code and de-identified cases are being prepared for release. <a href="https://github.com/getupyang/ProcessPrefBench/blob/main/RELEASE_STATUS.md">Check current release status ↗</a></p></div></div>
+      <details class="citation"><summary>Cite this work <span aria-hidden="true">+</span></summary><pre><code>@misc{yang2026processprefbench,
+  title = {ProcessPrefBench: Evaluating Cross-Task Transfer of
+           Individual Process Preferences from Naturalistic
+           Human--AI Interaction},
+  author = {Yang, Yiwen and Liu, Guanming},
+  year = {2026},
+  url = {https://github.com/getupyang/ProcessPrefBench}
+}</code></pre><p>Provisional citation. Publication metadata will be updated when the official record is available.</p></details>
+    </section>
+
+    <section class="product-section" id="product" aria-labelledby="product-title"><div class="wrap section product-grid"><div><p class="eyebrow">The product behind the question</p><h2 id="product-title">Meet <span class="margin-word">Margin.</span></h2><p class="product-lead">A place to read, annotate,<br>and think with AI.</p></div><div class="product-copy"><p>While building Margin, a reading and annotation tool, we kept returning to a question: can an assistant learn how a person wants to work from their everyday interactions?</p><p>Those natural conversations became the starting point for ProcessPrefBench. Margin is the product context behind the research; this paper evaluates preference transfer under controlled prompting conditions.</p><a class="text-link" href="https://get-margin.vercel.app">Explore Margin <span aria-hidden="true">↗</span></a></div></div></section>
+
+    <section class="wrap section contact" id="contact" aria-labelledby="contact-title"><p class="eyebrow">Keep the conversation going</p><h2 id="contact-title">What should AI learn<br>from working with you?</h2><p>I’m Yiwen, an independent researcher and the builder of Margin. I’d love to exchange ideas about learning from interaction, personalization, and evaluation.</p><div class="contact-actions"><a class="email-link" href="mailto:getupyang@gmail.com">getupyang@gmail.com <span aria-hidden="true">↗</span></a><button class="copy-email" type="button" hidden>Copy email</button></div><p class="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="wrap footer"><span>ProcessPrefBench</span><span>Yiwen Yang & Guanming Liu · 2026</span><a href="https://github.com/getupyang/ProcessPrefBench">GitHub ↗</a></footer>
+</body>
+</html>
