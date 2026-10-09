@@ -2,7 +2,7 @@
 
 - 记录时间：2026-10-09（Asia/Seoul）。
 - 分支：`codex/processprefbench-homepage`。
-- 关联 commit：本记录随主页首版提交，确切 SHA 见后续验证记录及 Git 历史。
+- 关联网站 commit：`0e8c560`（`feat: add mobile-first ProcessPrefBench research homepage`）；本记录的后续提交只补验证证据，不改变网站。
 - 文件：`website/` 静态页面、最终论文 PDF、二维码、维护说明；`scripts/check_website.cjs` 浏览器验收；根 `.gitignore` 排除部署配置。
 - 行为：手机首屏提供 Paper、Code、Product、Contact 四入口；可直接读论文、访问公开仓库、了解 Margin、发邮件或复制邮箱；关闭 JavaScript 仍可阅读和访问链接。
 - 为什么改：海报单一二维码需要固定入口，允许持续更新资源而无需重印。
@@ -15,3 +15,12 @@
 - 回归范围：静态网站 smoke + 页面针对性验收；不涉及研究评测算法、产品后端、数据库或插件，未运行这些组件的全量回归。
 - 范围与过时风险：公开仓库目前为 artifact pre-release，页面不承诺已有完整评测代码或数据；产品状态、出版元数据、域名及部署流程可能随实现变化。纸张上的扫码和实际会议网络需独立打样，软件验收不能替代。
 - 隐私：只使用论文已公开的作者信息、邮箱、已授权公开论文及合成解释场景。没有发布真实原始对话、内部评测数据、私有路径、连接器配置或认证信息。
+
+## 最终发布与验证
+
+- 验证日期：2026-10-09。部署 `dpl_HBVEmsc5o3GpSk3etkckobnrDB6r`，Vercel 状态 READY / production。
+- GitHub：网站提交已推到 `origin/codex/processprefbench-homepage`，未合并或推送 main。继续迭代使用此分支及其工作区。
+- 从 `https://ppbench.vercel.app` 运行完整 `scripts/check_website.cjs` 已通过全部六尺寸与功能检查，浏览器错误列表为空。
+- 论文完整下载：615119 字节，SHA-256 `7c3347950b8a5220d333394f343935d36f0312fa67a95ed9fc7ac64505bbf012`，与已确认最终稿一致。
+- QR：macOS Vision `VNDetectBarcodesRequest` 独立解码 PNG，返回且仅返回 `https://ppbench.vercel.app`。实体印刷扫码未测试。
+- 无需重启产品后端或刷新插件；普通网页刷新即可。静态资源下载和二维码文件随同一次部署发布。
