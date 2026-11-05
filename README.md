@@ -60,9 +60,16 @@ data/        Data release status; no raw histories are stored here
 scripts/     Public-release validation utilities
 ```
 
+## Paper
+
+- **Published version:** [ACL Anthology](https://aclanthology.org/2026.lmplayschool-1.3/)
+- **arXiv preprint:** [arXiv:2611.06065](https://arxiv.org/abs/2611.06065)
+
 ## Citation
 
-Citation metadata is provided in [CITATION.cff](CITATION.cff). The final ACL Anthology and/or arXiv record will be added when available.
+Citation metadata for the repository artifact is provided in [CITATION.cff](CITATION.cff). When citing the paper, please use its published record:
+
+> Yiwen Yang and Guanming Liu. 2026. ProcessPrefBench: Evaluating Cross-Task Transfer of Individual Process Preferences from Naturalistic Human-AI Interaction. In *The Proceedings of Improving Language Models through Learning from Dialogue Game Interaction*, pages 30--40. Association for Computational Linguistics. [https://doi.org/10.18653/2026.lmplayschool-1.3](https://doi.org/10.18653/2026.lmplayschool-1.3)
 
 ## Licenses
 
